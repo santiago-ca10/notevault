@@ -11,7 +11,8 @@ class NoteService:
             raise ValueError("El título es obligatorio")
         return self.repo.create({
             "titulo": titulo,
-            "contenido": contenido
+            "contenido": contenido,
+            "fecha" : datetime.now()
         })
 
     def obtener_notas(self):
