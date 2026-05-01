@@ -7,12 +7,13 @@ Aplicación de escritorio para la gestión de notas desarrollada en Python, util
 ##  Características
 
 - Crear notas con título y contenido
-- Visualizar todas las notas
+- Visualizar todas las notas almacenadas
 - Buscar notas por título
-- Actualizar contenido de notas
+- Actualizar contenido de notas existentes
 - Eliminar notas
-- Interfaz gráfica moderna (CustomTkinter)
-- Persistencia de datos con MongoDB (Docker)
+- Interfaz gráfica moderna con CustomTkinter
+- Persistencia de datos mediante MongoDB y Docker
+- Arquitectura organizada por capas
 
 ---
 
@@ -20,7 +21,7 @@ Aplicación de escritorio para la gestión de notas desarrollada en Python, util
 
 El proyecto sigue una arquitectura por capas:
 
-```
+```text
 app/
 ├── config/ # Configuración de base de datos
 ├── models/ # Modelos de datos
@@ -42,7 +43,7 @@ docker-compose up -d
 
 ## ⚙️ Configuración
 
-Crear un archivo .env en la raíz del proyecto:
+Crear un archivo `.env` en la raíz del proyecto:
 ```
 MONGO_URI=mongodb://localhost:27017/
 DB_NAME=notevault_db
@@ -85,6 +86,7 @@ Docker
 CustomTkinter
 
 ## 📌 Notas
-Se utiliza MongoDB como base de datos NoSQL documental.
-La conexión se gestiona mediante variables de entorno.
-Se implementan operaciones CRUD completas.
+- MongoDB se utiliza como base de datos NoSQL documental.
+- La conexión se gestiona mediante variables de entorno.
+- Se implementan operaciones CRUD completas.
+- La aplicación sigue una arquitectura desacoplada basada en capas.
