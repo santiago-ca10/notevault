@@ -1,92 +1,171 @@
 # 📝 NoteVault
 
-Aplicación de escritorio para la gestión de notas desarrollada en Python, utilizando MongoDB como base de datos documental y una interfaz moderna con CustomTkinter.
+Aplicación de escritorio para la gestión de notas desarrollada con Python, MongoDB y CustomTkinter.
+
+<p align="center">
+
+<img src="https://img.shields.io/badge/Python-3.13-blue?style=for-the-badge&logo=python">
+
+<img src="https://img.shields.io/badge/MongoDB-NoSQL-green?style=for-the-badge&logo=mongodb">
+
+<img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker">
+
+<img src="https://img.shields.io/badge/Tests-Pytest-red?style=for-the-badge&logo=pytest">
+
+</p>
 
 ---
 
-##  Características
+##  Descripción
 
-- Crear notas con título y contenido
-- Visualizar todas las notas almacenadas
-- Buscar notas por título
-- Actualizar contenido de notas existentes
-- Eliminar notas
-- Interfaz gráfica moderna con CustomTkinter
-- Persistencia de datos mediante MongoDB y Docker
-- Arquitectura organizada por capas
+NoteVault es una aplicación de escritorio inspirada en aplicaciones modernas de notas móviles.
+
+Permite gestionar notas mediante operaciones CRUD completas utilizando MongoDB como base de datos documental.
+
+El proyecto fue desarrollado aplicando arquitectura modular por capas, Docker para la base de datos y pruebas unitarias con pytest.
 
 ---
 
-##  Arquitectura / Estructura
+#  Características
 
-El proyecto sigue una arquitectura por capas:
+- Crear notas  
+- Editar notas  
+- Eliminar notas  
+- Buscar notas por título  
+- Interfaz moderna estilo app móvil  
+- Fechas relativas dinámicas  
+- MongoDB con Docker  
+- Arquitectura desacoplada  
+- Testing con pytest  
+
+---
+
+#  Vista previa
+
+> Interfaz moderna desarrollada con CustomTkinter.
+
+![Interfaz Principal](docs/screenshots/InterfazInicio.png)
+---
+
+#  Documentación
+
+| Documento | Descripción |
+|---|---|
+| [ Documentación General](docs/README.md) | Documentación principal |
+| [ Arquitectura](docs/architecture.md) | Arquitectura por capas |
+| [ Base de Datos](docs/database.md) | MongoDB y operaciones CRUD |
+| [ Testing](docs/testing.md) | Pruebas unitarias |
+
+---
+
+#  Arquitectura del Proyecto
 
 ```text
 app/
-├── config/ # Configuración de base de datos
-├── models/ # Modelos de datos
-├── repositories/ # Acceso a MongoDB (CRUD)
-├── services/ # Lógica de negocio
-├── ui/ # Interfaz gráfica
-└── main.py # Punto de entrada
+├── config/          # Configuración MongoDB
+├── models/          # Modelos de datos
+├── repositories/    # CRUD y acceso a datos
+├── services/        # Lógica de negocio
+├── ui/              # Interfaz gráfica
+├── utils/           # Funciones auxiliares
+└── main.py          # Punto de entrada
 ```
 
 ---
 
-## 🐳 Base de Datos (MongoDB con Docker)
+#  MongoDB con Docker
 
-Para levantar MongoDB:
+Levantar contenedor:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
-## ⚙️ Configuración
+Verificar contenedor:
 
-Crear un archivo `.env` en la raíz del proyecto:
+```bash
+docker ps
 ```
+
+---
+#  Variables de Entorno
+
+Crear archivo `.env`:
+
+```env
 MONGO_URI=mongodb://localhost:27017/
 DB_NAME=notevault_db
 COLLECTION_NAME=notas
 ```
 
-## Instalación
+---
 
-Crear entorno virtual:
-```
+#  Instalación
+
+##  Crear entorno virtual
+
+```bash
 python -m venv venv
 ```
-Activar entorno:
-```
+
+---
+
+##  Activar entorno virtual
+
+### Windows
+
+```bash
 venv\Scripts\activate
 ```
-Instalar dependencias:
-```
+
+---
+
+##  Instalar dependencias
+
+```bash
 pip install -r requirements.txt
 ```
 
-## Ejecución
+---
 
-Ejecutar la aplicación:
+#  Ejecutar aplicación
 
-```
+```bash
 python -m app.main
 ```
 
-## 🧪 Tecnologías utilizadas
+---
 
-Python
+#  Ejecutar pruebas
 
-pymongo
+```bash
+pytest
+```
 
-MongoDB
+## Coverage
 
-Docker
+```bash
+pytest --cov=app
+```
 
-CustomTkinter
+---
 
-## 📌 Notas
-- MongoDB se utiliza como base de datos NoSQL documental.
-- La conexión se gestiona mediante variables de entorno.
+#  Tecnologías utilizadas
+
+- Python
+- MongoDB
+- PyMongo
+- Docker
+- CustomTkinter
+- Pytest
+
+---
+
+#  Notas Técnicas
+
+- MongoDB se utiliza como base de datos documental NoSQL.
+- La conexión se realiza mediante `pymongo`.
+- Docker permite ejecutar MongoDB de forma aislada.
+- El proyecto sigue una arquitectura desacoplada basada en capas.
 - Se implementan operaciones CRUD completas.
-- La aplicación sigue una arquitectura desacoplada basada en capas.
+
